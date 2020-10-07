@@ -19,11 +19,6 @@ Google Deployment manager
 3. Uses Python and Jinja2 as languages.
 
 
+# Installing Terraform
 
 
-
-1. [Create a new cluster](https://cloud.google.com/kubernetes-engine/docs/how-to/creating-a-cluster) and connect to it.
-2. [Create aliases for admin account and two service accounts](https://github.com/DanyLan/GKE-RBAC-WALKTHROUGH/blob/master/create-service-account.md).
-3. [Create two namespaces](https://github.com/DanyLan/GKE-RBAC-WALKTHROUGH/blob/master/namespaces.md).
-4. [Create roles and rolebindings](https://github.com/DanyLan/GKE-RBAC-WALKTHROUGH/blob/master/create-roles.md).
-5. [Create cluster roles and cluster rolebindngs](https://github.com/DanyLan/GKE-RBAC-WALKTHROUGH/blob/master/create-cluster-roles.md).

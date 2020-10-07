@@ -21,4 +21,18 @@ Google Deployment manager
 
 # Installing Terraform
 
+We are going to work on Centos. Go to root then run the following updates and [download the 64 bit version](https://www.terraform.io/downloads.html)
 
+    sudo -s
+
+    yum update -y
+    
+    yum install wget
+    
+    wget https://releases.hashicorp.com/terraform/0.13.4/terraform_0.13.4_linux_amd64.zip
+    
+    yum install unzip
+    
+    
+    
+    

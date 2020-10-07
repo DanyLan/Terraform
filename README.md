@@ -6,13 +6,14 @@ Terraform is commonly used in the DevOps industry and uses Infrastructure as Cod
 
 Terraform
 
--Can be used across the major cloud provider such as GCP, AWS and Azure.
--Terraform uses HashiCorp's Configuration Language (HCL).
+    -Can be used across the major cloud provider such as GCP, AWS and Azure.
+    -Terraform uses HashiCorp's Configuration Language (HCL).
 
 Google Deployment manager
--Is a native GCP IAC tool.
--Is used in Marketplace solutions.
--Uses Python and Jinja2 as languages.
+
+    -Is a native GCP IAC tool.
+    -Is used in Marketplace solutions.
+    -Uses Python and Jinja2 as languages.
 
 
 

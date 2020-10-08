@@ -55,7 +55,17 @@ After that we are going to edit .bash_profile in order to setup our environment 
     PATH=$PATH:$HOME/.local/bin:$HOME/bin
 
     export PATH
-    export PATH="$PATH:/home/yuineng/downloads"
+    export PATH="$PATH:/home/[name]/downloads"
+   
+Now run terraform to see if application is working
+
+    source .bash_profile
+    
+    terraform
+    
+    
+    
+    
     
 
     

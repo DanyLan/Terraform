@@ -63,6 +63,11 @@ Now run terraform to see if application is working
     
     terraform
     
+# Create a Service account
+
+Create a service and upload key to VM this way
+
+
     
     
     

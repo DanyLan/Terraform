@@ -65,11 +65,27 @@ Now run terraform to see if application is working
     
 # Create a Service account
 
-Create a service and upload key to VM this way
+Create a service account (you may give it owner/editor role) and upload key to VM this way. Then move the key to a folder of your choice.
 
 ![](https://github.com/DanyLan/Terraform/blob/main/Screenshot%202020-10-09%20at%2014.51.44.png)
 
+# Create a Service account
 
+Create the main.tf file.
+
+    provider "google" {
+      version = "3.5.0"
+
+      credentials = file("<NAME>.json")
+
+      project = "<PROJECT_ID>"
+      region  = "us-central1"
+      zone    = "us-central1-c"
+    }
+
+    resource "google_compute_network" "vpc_network" {
+      name = "terraform-network"
+    } 
     
     
     

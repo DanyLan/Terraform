@@ -67,6 +67,8 @@ Now run terraform to see if application is working
 
 Create a service and upload key to VM this way
 
+![](https://github.com/DanyLan/Terraform/blob/main/Screenshot%202020-10-09%20at%2014.51.44.png)
+
 
     
     

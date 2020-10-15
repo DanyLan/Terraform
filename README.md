@@ -113,7 +113,7 @@ Create a bucket and a folder on cloud storage(prefix)
        }
     }
 
-Run terraform init (if you get failure and make change use terraform init --reconfigure in order to start afresh)
+Run 'terraform init' (if you get failure and make change use terraform init --reconfigure in order to start afresh)
 
 In order to review changes that are going to happen please run 
 

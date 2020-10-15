@@ -119,7 +119,7 @@ In order to review changes that are going to happen please run
 
     terraform plan
     
-Now to create the vpc network and save your state un bucket created, please run 
+Now to create the vpc network and save your state in bucket/folder created, please run 
 
     terraform apply
     

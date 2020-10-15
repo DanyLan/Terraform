@@ -71,7 +71,7 @@ Create a service account (you may give it owner/editor role) and upload key to V
 
 # Create a Service account
 
-Create the main.tf file.
+Create the main.tf file where <name> is the name of your key.
 
     provider "google" {
       version = "3.5.0"
@@ -87,10 +87,41 @@ Create the main.tf file.
       name = "terraform-network"
     } 
     
-    
-    
-    
+# Setting up remote state
 
+Create a bucket and a folder on cloud storage(prefix)
+
+    provider "google" {
+      version = "3.5.0"
+
+      credentials = file("danytest1-6b2d50a7df00.json")
+
+      project = "danytest1"
+      region  = "us-central1"
+      zone    = "us-central1-c"
+    }
+
+    resource "google_compute_network" "vpc_network" {
+      name = "new-terraform-network"
+    }
+
+    terraform {
+      backend "gcs" {
+        bucket = "terraformbucketdan"
+        prefix = "test1"
+        credentials = "danytest1-6b2d50a7df00.json"
+       }
+    }
+
+Run terraform init (if you get failure and make change use terraform init --reconfigure in order to start afresh)
+
+In order to review changes that are going to happen please run 
+
+    terraform plan
+    
+Now to create the vpc network and save your state un bucket created, please run 
+
+    terraform apply
     
     
     

@@ -113,7 +113,7 @@ Create a bucket and a folder on cloud storage(prefix)
        }
     }
 
-Run 'terraform init' (if you get failure and make change use terraform init --reconfigure in order to start afresh)
+Run `terraform init` (if you get failure and make change use terraform init --reconfigure in order to start afresh)
 
 In order to review changes that are going to happen please run 
 
@@ -123,7 +123,63 @@ Now to create the vpc network and save your state in bucket/folder created, plea
 
     terraform apply
     
+In order to delete the VPC network created, apply
+
+    terraform destroy
     
+How to use `terraform output`. We are going to get the value of the static ip that we are going to attach to our created VM
+
+  <pre>provider "google" {
+  version = "3.5.0"
+  credentials = file("danytest1-6b2d50a7df00.json")
+  project = "<project_ID>"
+  region  = "us-central1"
+  zone    = "us-central1-c"
+}
+resource "google_compute_network" "vpc_network" {
+  name = "new-terraform-network"
+}
+terraform {
+  backend "gcs" {
+    bucket = "terraformbucketdan"
+    prefix = "test1"
+    credentials = "danytest1-6b2d50a7df00.json"
+   }
+}
+resource "google_compute_instance" "vm_instance" {
+  name         = "terraform-instance"
+  machine_type = "f1-micro"
+  boot_disk {
+    initialize_params {
+      image = "debian-cloud/debian-9"
+    }
+  }
+  network_interface {
+    network = google_compute_network.vpc_network.name
+    access_config {
+    }
+  }
+}
+resource "google_compute_address" "static_ip" {
+  name = "terraform-static-ip"
+}</pre>
     
+Create a output file this way
+
+    vim output.tf
     
+    output "ip" {
+      value = google_compute_address.static_ip.address
+      }
     
+ Before running `terraform apply`, please check check the following beforehand
+ 
+     terraform validate
+     
+     terrfarom plan
+    
+ This should create your instance and output the assigned IP address as follows
+ 
+ 
+ 
+ 

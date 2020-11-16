@@ -106,7 +106,7 @@ How to use `terraform output`. We are going to get the value of the static ip th
   <pre>provider "google" {
   version = "3.5.0"
   credentials = file("danytest1-6b2d50a7df00.json")
-  project = "<PROJECT_ID>"
+  project = "PROJECT_ID"
   region  = "us-central1"
   zone    = "us-central1-c"
 }

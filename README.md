@@ -69,7 +69,7 @@ Create a service account (you may give it owner/editor role) and upload key to V
 
 ![](https://github.com/DanyLan/Terraform/blob/main/Screenshot%202020-10-09%20at%2014.51.44.png)
 
-# Create a Service account
+# Create a VPC network
 
 Create the main.tf file where <name> is the name of your key.
 
@@ -87,32 +87,6 @@ Create the main.tf file where <name> is the name of your key.
       name = "terraform-network"
     } 
     
-# Setting up remote state
-
-Create a bucket and a folder on cloud storage(prefix)
-
-    provider "google" {
-      version = "3.5.0"
-
-      credentials = file("danytest1-6b2d50a7df00.json")
-
-      project = "danytest1"
-      region  = "us-central1"
-      zone    = "us-central1-c"
-    }
-
-    resource "google_compute_network" "vpc_network" {
-      name = "new-terraform-network"
-    }
-
-    terraform {
-      backend "gcs" {
-        bucket = "terraformbucketdan"
-        prefix = "test1"
-        credentials = "danytest1-6b2d50a7df00.json"
-       }
-    }
-
 Run `terraform init` (if you get failure and make change use terraform init --reconfigure in order to start afresh)
 
 In order to review changes that are going to happen please run 
@@ -139,13 +113,7 @@ How to use `terraform output`. We are going to get the value of the static ip th
 resource "google_compute_network" "vpc_network" {
   name = "new-terraform-network"
 }
-terraform {
-  backend "gcs" {
-    bucket = "terraformbucketdan"
-    prefix = "test1"
-    credentials = "danytest1-6b2d50a7df00.json"
-   }
-}
+
 resource "google_compute_instance" "vm_instance" {
   name         = "terraform-instance"
   machine_type = "f1-micro"
@@ -164,7 +132,7 @@ resource "google_compute_address" "static_ip" {
   name = "terraform-static-ip"
 }</pre>
     
-Create a output file this way
+Create an output file this way
 
     vim output.tf
     

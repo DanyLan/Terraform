@@ -108,7 +108,7 @@ Create an output file this way
  
      terraform validate
      
-     terrfarom plan
+     terraform plan
     
  This should create your instance and output the assigned IP address as follows
  

@@ -121,5 +121,50 @@ Reserve an IP address and give it a name
 'terraform destroy' after you check that resource has been successfully created.
 
 If you are stuck: [hint](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_address)
+
+# Creating a GKE cluster with variable file
+
+The concept of the variable file is so that you do not have to edit the main file everytime. So basically the variable file will be the input to your main file in order to build your resouces.
+
+<pre>resource "google_container_cluster" "primary" {
+  name = var.cluster_name
+
+  initial_node_count       = var.initial_node_count
+
+  master_auth {
+    username = ""
+    password = ""
+
+    client_certificate_config {
+      issue_client_certificate = false
+    }
+  }
+
+  node_config {
+    //machine_type = "e2-medium"
+    oauth_scopes = [
+      "https://www.googleapis.com/auth/logging.write",
+      "https://www.googleapis.com/auth/monitoring",
+    ]
+
+    metadata = {
+      disable-legacy-endpoints = "true"
+    }
+
+    labels = {
+      app = var.app_name
+    }
+
+    tags = ["app", var.app_name]
+  }
+
+  timeouts {
+    create = "30m"
+    update = "40m"
+  }
+}
+</pre>
+
+
  
  

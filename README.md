@@ -118,6 +118,8 @@ Create an output file this way
 
 Reserve an IP address and give it a name
 
+'terraform destroy' after you check that resource has been successfully created.
+
 If you are stuck: [hint](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_address)
  
  

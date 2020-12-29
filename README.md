@@ -21,47 +21,11 @@ Google Deployment manager
 
 # Installing Terraform
 
-We are going to work on Centos. Go to root then run the following updates and [download the 64 bit version](https://www.terraform.io/downloads.html)
+We are going to work on [Centos](https://learn.hashicorp.com/tutorials/terraform/install-cli).
 
-    sudo -s
+Create a folder
 
-    yum update -y
-    
-    yum install wget
-    
-    wget https://releases.hashicorp.com/terraform/0.13.4/terraform_0.13.4_linux_amd64.zip
-    
-    yum install unzip
-    
-    unzip terraform_0.13.4_linux_amd64.zip
-    
-Now we are going to move the terraform package to downloads directory
-
-    mkdir downloads
-    
-    mv terraform downloads/
-    
-After that we are going to edit .bash_profile in order to setup our environment to use terraform
-
-    # .bash_profile
-
-    # Get the aliases and functions
-    if [ -f ~/.bashrc ]; then
-            . ~/.bashrc
-    fi
-
-    # User specific environment and startup programs
-
-    PATH=$PATH:$HOME/.local/bin:$HOME/bin
-
-    export PATH
-    export PATH="$PATH:/home/[name]/downloads"
-   
-Now run terraform to see if application is working
-
-    source .bash_profile
-    
-    terraform
+    mkdir network
     
 # Create a Service account
 

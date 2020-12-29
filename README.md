@@ -116,6 +116,8 @@ Create an output file this way
 
 # CHALLENGE 1
 
-Reserve an IP address. 
+Reserve an IP address and give it a name
+
+If you are stuck: [hint](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_address)
  
  

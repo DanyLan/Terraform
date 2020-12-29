@@ -113,5 +113,9 @@ Create an output file this way
  This should create your instance and output the assigned IP address as follows
  
 ![](https://github.com/DanyLan/Terraform/blob/main/Screenshot%202020-10-19%20at%2017.36.28.png)
+
+# CHALLENGE 1
+
+Reserve an IP address. 
  
  

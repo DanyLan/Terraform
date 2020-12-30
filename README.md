@@ -129,6 +129,7 @@ The concept of the variable file is so that you do not have to edit the main fil
 gke_cluster.tf
 
 <pre>resource "google_container_cluster" "primary" {
+  version = "3.5.0"
   credentials = file("name.json") //add your own credentials
   project = "PROJECT_ID"
   

@@ -126,6 +126,8 @@ If you are stuck: [hint](https://registry.terraform.io/providers/hashicorp/googl
 
 The concept of the variable file is so that you do not have to edit the main file everytime. So basically the variable file will be the input to your main file in order to build your resouces.
 
+gke_cluster.tf
+
 <pre>resource "google_container_cluster" "primary" {
   name = var.cluster_name
 
@@ -165,6 +167,50 @@ The concept of the variable file is so that you do not have to edit the main fil
 }
 </pre>
 
+variable.tf
+
+<pre>variable "cluster_name" {
+  default = "cluster"
+}
+
+variable "app_name" {
+  default = "my-app"
+}
+
+variable "initial_node_count" {
+  default = 3
+}
+
+variable "kubernetes_min_ver" {
+  default = "latest"
+}
+
+variable "kubernetes_max_ver" {
+  default = "latest"
+}
+
+variable "remove_default_node_pool" {
+  default = false
+}
+
+variable "project" {
+  default = "your-project-name"
+}
+
+variable "credentials" {
+  default = "terraform-key.json"
+}
+
+variable "region" {
+  default = "europe-west1"
+}
+
+variable "zone" {
+  type        = list(string)
+  description = "The zones to host the cluster in."
+  default     = ["europe-west1-b", "europe-west1-c", "europe-west1-d"]
+}
+</pre>
 
  
  

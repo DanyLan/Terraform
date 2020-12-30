@@ -40,7 +40,7 @@ Create the main.tf file where 'name' is the name of your key.
     provider "google" {
       version = "3.5.0"
 
-      credentials = file("<NAME>.json")
+      credentials = file("<NAME>.json") // add your own credentials
 
       project = "<PROJECT_ID>"
       region  = "us-central1"
@@ -129,6 +129,9 @@ The concept of the variable file is so that you do not have to edit the main fil
 gke_cluster.tf
 
 <pre>resource "google_container_cluster" "primary" {
+  credentials = file("name.json") //add your own credentials
+  project = "PROJECT_ID"
+  
   name = var.cluster_name
 
   initial_node_count       = var.initial_node_count

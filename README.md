@@ -35,7 +35,7 @@ Create a service account (you may give it owner/editor role) and upload key to V
 
 # Create a VPC network
 
-Create the main.tf file where <name> is the name of your key.
+Create the main.tf file where 'name' is the name of your key.
 
     provider "google" {
       version = "3.5.0"

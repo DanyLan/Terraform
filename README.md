@@ -130,93 +130,57 @@ gke_cluster.tf
 
 <pre>provider "google" {
   version = "3.5.0"
-
-  credentials = file("<NAME>.json") // add your own credentials
-  project = "<PROJECT_ID>"
-    
+  credentials = file(var.creds) // add your own credentials
+  project = var.projectid
+}
 resource "google_container_cluster" "primary" {
-
-  
-  name = var.cluster_name
-
-  initial_node_count       = var.initial_node_count
-
+  name               = var.cluster_name
+  location           = var.location
+  initial_node_count = var.initial_node_count
   master_auth {
     username = ""
     password = ""
-
     client_certificate_config {
       issue_client_certificate = false
     }
   }
-
   node_config {
-    //machine_type = "e2-medium"
     oauth_scopes = [
-      "https://www.googleapis.com/auth/logging.write",
-      "https://www.googleapis.com/auth/monitoring",
+      "https://www.googleapis.com/auth/cloud-platform"
     ]
-
     metadata = {
       disable-legacy-endpoints = "true"
     }
-
     labels = {
-      app = var.app_name
+      foo = "bar"
     }
-
-    tags = ["app", var.app_name]
+    tags = ["foo", "bar"]
   }
-
   timeouts {
     create = "30m"
     update = "40m"
+     
   }
 }
 </pre>
 
 variable.tf
 
-<pre>variable "cluster_name" {
-  default = "cluster"
+<pre>
+variable "cluster_name" {
+  default = "clusterdan"
 }
-
-variable "app_name" {
-  default = "my-app"
+variable "projectid" {
+  default = "danytest1"
 }
-
 variable "initial_node_count" {
-  default = 3
+  default = 1
 }
-
-variable "kubernetes_min_ver" {
-  default = "latest"
+variable "location" {
+  default = "us-central1-c"
 }
-
-variable "kubernetes_max_ver" {
-  default = "latest"
-}
-
-variable "remove_default_node_pool" {
-  default = false
-}
-
-variable "project" {
-  default = "your-project-name"
-}
-
-variable "credentials" {
-  default = "danytest1-e89d80b5ffe1.json"
-}
-
-variable "region" {
-  default = "europe-west1"
-}
-
-variable "zone" {
-  type        = list(string)
-  description = "The zones to host the cluster in."
-  default     = ["europe-west1-b", "europe-west1-c", "europe-west1-d"]
+variable "creds" {
+  default = "/home/yuineng/network/xxxxxxxxxxxxxxxxxx.json"
 }
 </pre>
 

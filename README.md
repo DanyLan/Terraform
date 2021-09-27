@@ -186,5 +186,5 @@ variable "creds" {
 
  # CHALLENGE 2
  
- The above created a zonal clsuter with only one node. Try to create a regional cluster now with 3 nodes in 3 different zones. [Hint](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/container_cluster)
+ The above created a zonal cluster with only one node. Try to create a regional cluster now with 3 nodes in 3 different zones. [Hint](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/container_cluster)
  

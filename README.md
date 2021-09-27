@@ -104,7 +104,7 @@ Create an output file this way
       value = google_compute_address.static_ip.address
       }
     
- Before running `terraform apply`, please check check the following beforehand
+ Before running `terraform apply`, please check the following beforehand
  
      terraform validate
      
